@@ -6,8 +6,9 @@
 
 ## Key Features
 
-- **Automatic Solar Intermittency Handling**: As solar radiation increases at dawn, solar production ramps up to fulfill city demand.
-- **Uniform Dispatch Throttling**: The grid manager calculates the remaining net power demand and uniformly throttles dispatchable power plants (Coal, Gas, Hydro, Nuclear, Geothermal) down to the exact ratio required to satisfy demand without over-generating electricity.
+- **Automatic Solar Intermittency Handling**: As solar radiation increases at dawn, solar production ramps up to fulfill city demand without fluctuations.
+- **Stable Must-Run Renewable Inputs**: Solar and wind generation are treated as unmutated must-run generation inputs based on current environmental conditions (time of day / sun position), eliminating power output oscillation.
+- **Hydro & Dispatchable Power Reduction**: Hydro dams, coal, gas, nuclear, and geothermal stations are uniformly throttled down to match remaining net demand once solar generation kicks in.
 - **Zero Configuration Required**: Functions as an automated background grid management system without complex UI overhead.
 - **Unit Tested**: Full test coverage verifying power dispatch calculations across various daytime, nighttime, and peak load scenarios.
 
@@ -15,13 +16,13 @@
 
 ## How It Works
 
-1. **Must-Run Generation**: Solar and Wind plants run at available weather capacity.
+1. **Must-Run Renewable Generation**: Solar and Wind plants output their current available generation determined by weather/time of day without being throttled.
 2. **Net Demand Calculation**:
    $$\text{Net Dispatch Demand} = \max(0, \text{Total City Demand} - \text{Must-Run Generation})$$
 3. **Dispatchable Throttle Ratio**:
-   $$\text{Throttle Factor} = \text{Clamp}\left(\frac{\text{Net Dispatch Demand}}{\text{Total Dispatchable Capacity}}, 0.0, 1.0\right)$$
-4. **Plant Output Adjustment**: Each dispatchable station (Coal, Gas, Hydro, Nuclear, Geothermal) sets its production output to:
-   $$\text{Output} = \text{Max Capacity} \times \text{Throttle Factor}$$
+   $$\text{Throttle Factor} = \text{Clamp}\left(\frac{\text{Net Dispatch Demand}}{\text{Total Dispatchable Available Capacity}}, 0.0, 1.0\right)$$
+4. **Plant Output Adjustment**: Each dispatchable station (Hydro, Coal, Gas, Nuclear, Geothermal) sets its production output to:
+   $$\text{Current Output} = \text{Available Capacity} \times \text{Throttle Factor}$$
 
 ---
 
