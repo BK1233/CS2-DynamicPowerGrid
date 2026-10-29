@@ -12,15 +12,21 @@ namespace DynamicPowerGrid
         public static string ModName => "Dynamic Power Grid Manager";
         public static string ModVersion => "1.0.0";
 
+        public static Setting? Settings { get; private set; }
+
         public DynamicPowerGridSystem? GridSystem { get; private set; }
 
         public void OnLoad()
         {
+            Settings = new Setting();
+            Settings.SetDefaults();
+
             GridSystem = new DynamicPowerGridSystem();
         }
 
         public void OnDispose()
         {
+            Settings = null;
             GridSystem = null;
         }
 
