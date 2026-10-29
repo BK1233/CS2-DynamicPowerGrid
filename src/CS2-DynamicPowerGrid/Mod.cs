@@ -3,9 +3,8 @@ using DynamicPowerGrid.Systems;
 namespace DynamicPowerGrid
 {
     /// <summary>
-    /// Entry point for Cities: Skylines II Mod.
-    /// When game assemblies (Game.dll, Colossal.UI, Unity.Entities) are available in the game installation directory,
-    /// this class implements Game.Modding.IMod to register DynamicPowerGridSystem into the GameSystemBase simulation update loop.
+    /// Entry point for Cities: Skylines II Mod following the standard VS2022 mod template layout.
+    /// Supports both game runtime simulation initialization and standalone test/mock execution.
     /// </summary>
     public class Mod
     {
@@ -20,9 +19,14 @@ namespace DynamicPowerGrid
             GridSystem = new DynamicPowerGridSystem();
         }
 
-        public void OnUnload()
+        public void OnDispose()
         {
             GridSystem = null;
+        }
+
+        public void OnUnload()
+        {
+            OnDispose();
         }
     }
 }

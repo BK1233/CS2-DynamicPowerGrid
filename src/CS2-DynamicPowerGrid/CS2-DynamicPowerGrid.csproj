@@ -7,6 +7,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Title>Dynamic Power Grid Manager</Title>
+    <Version>1.0.0</Version>
+    <Authors>ModAuthor</Authors>
+    <Description>Automatic power grid balancing and dispatch management for Cities: Skylines II.</Description>
+    <PackageProjectUrl>https://github.com/example/CS2-DynamicPowerGrid</PackageProjectUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Properties\PublishConfiguration.xml" />
+  </ItemGroup>
 
 </Project>
