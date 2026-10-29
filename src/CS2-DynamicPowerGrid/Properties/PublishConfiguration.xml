@@ -1,0 +1,15 @@
+<Publish>
+  <ModId Value="78451" />
+  <DisplayName Value="Dynamic Power Grid Manager" />
+  <ServiceName Value="cs2-dynamic-power-grid" />
+  <Author Value="ModAuthor" />
+  <UserModVersion Value="1.0.0" />
+  <ShortDescription Value="Automatic power grid balancing and dispatch management for Cities: Skylines II." />
+  <LongDescription Value="Dynamic Power Grid Manager implements automatic power grid balancing. When solar power plants and other intermittent renewable sources ramp up generation during the daytime, the grid manager automatically scales down dispatchable thermal and hydro stations to match remaining net electricity demand." />
+  <ChangeLog Value="Initial release." />
+  <ExternalLink Type="GitHub" Url="https://github.com/example/CS2-DynamicPowerGrid" />
+  <Tags>
+    <Tag Value="Code Mod" />
+    <Tag Value="Services" />
+  </Tags>
+</Publish>
